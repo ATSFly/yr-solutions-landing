@@ -118,6 +118,28 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 45s linear infinite;
+        }
+        .animate-marquee.is-paused {
+            animation-play-state: paused !important;
+        }
+        #portfolioCarouselContainer:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-surface font-body-md text-body-md text-text-primary antialiased selection:bg-mauve-accent selection:text-white">
@@ -310,6 +332,847 @@
 </div>
 </div>
 </section>
+
+<!-- Marcas que Escalaron con Nosotros (Portafolio Web) -->
+<section class="py-24 border-t border-mauve-accent/20 relative bg-[#18062b] overflow-hidden" id="portafolio">
+    <!-- Ambient glow lights in YR palette -->
+    <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-primary/50 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-fiscal-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-mauve-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 mb-12">
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-fiscal-gold font-bold mb-3">
+                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    <span>Clientes & Proyectos Desplegados</span>
+                </div>
+                <h2 class="font-display-lg text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight">
+                    Marcas que Escalaron con <span class="text-fiscal-gold">Nosotros</span>
+                </h2>
+                <p class="mt-3 text-white/80 text-base md:text-lg max-w-2xl leading-relaxed font-body-md">
+                    Explora en vivo los sitios web, plataformas de comercio y portales corporativos desarrollados por nuestro equipo. Haz clic en cualquiera de las tarjetas para visitar su web oficial.
+                </p>
+            </div>
+
+            <!-- Interactive Carousel Controls -->
+            <div class="flex items-center gap-3 self-start md:self-auto shrink-0">
+                <!-- Play/Pause Button -->
+                <button
+                    id="carouselPauseBtn"
+                    type="button"
+                    class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all flex items-center gap-2 text-xs font-semibold cursor-pointer shadow-sm"
+                    title="Pausar o reanudar movimiento"
+                    aria-label="Pausar o reanudar carrusel"
+                >
+                    <span id="pauseIcon" class="material-symbols-outlined text-base">pause</span>
+                    <span id="pauseText">Pausar</span>
+                </button>
+
+                <!-- Prev / Next Manual Scroll Buttons -->
+                <div class="flex items-center gap-1.5 p-1 rounded-xl bg-white/10 border border-white/20">
+                    <button
+                        id="carouselPrevBtn"
+                        type="button"
+                        class="w-8 h-8 rounded-lg flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
+                        aria-label="Desplazar hacia la izquierda"
+                    >
+                        <span class="material-symbols-outlined text-base">chevron_left</span>
+                    </button>
+                    <button
+                        id="carouselNextBtn"
+                        type="button"
+                        class="w-8 h-8 rounded-lg flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
+                        aria-label="Desplazar hacia la derecha"
+                    >
+                        <span class="material-symbols-outlined text-base">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Status indicator -->
+        <div class="mt-6 flex flex-wrap items-center gap-3 text-xs text-white/70">
+            <span class="flex items-center gap-2 text-fiscal-gold font-bold bg-fiscal-gold/15 px-3 py-1 rounded-full border border-fiscal-gold/30">
+                <span class="w-2 h-2 rounded-full bg-fiscal-gold animate-pulse"></span>
+                6 Plataformas Activas en Producción
+            </span>
+            <span class="hidden sm:inline text-white/40">•</span>
+            <span class="hidden sm:inline">Pasa el cursor por encima para pausar y explorar</span>
+        </div>
+    </div>
+
+    <!-- Infinite Moving Marquee Track -->
+    <div
+        id="portfolioCarouselContainer"
+        class="relative w-full overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing group/track"
+    >
+        <div
+            id="portfolioTrack"
+            class="animate-marquee flex gap-6 w-max py-4 px-4 transition-all duration-300"
+        >
+            <!-- SET 1 -->
+            <!-- 1. JG Painting Contractors -->
+            <a href="https://jgpainting.business/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-amber-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-fiscal-gold bg-black/60 px-2.5 py-0.5 rounded-full border border-fiscal-gold/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-fiscal-gold animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    JG
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        JG Painting Contractors
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>jgpainting.business</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-amber-300 border-amber-400/30 bg-amber-950/40">
+                                    Construcción & Acabados (USA)
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Professional Painting Services in North Carolina
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Plataforma bilingüe enfocada en el mercado estadounidense, estructurada para generar presupuestos inmediatos y validar reputación local.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Mercado Internacional</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 2. Mariquita Digital -->
+            <a href="https://mariquita.digital/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-teal-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-teal-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-teal-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    MD
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        Mariquita Digital
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>mariquita.digital</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-teal-300 border-teal-400/30 bg-teal-950/40">
+                                    Directorio Local & Turismo
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Portal & Directorio Comercial de San Sebastián
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Directorio y ecosistema web interactivo que impulsa la visibilidad de empresas locales, hoteles, gastronomía y turismo regional.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Directorio Comercial</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 3. CEIMOD -->
+            <a href="https://www.ceimod.com" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-emerald-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-emerald-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    CM
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        CEIMOD
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>ceimod.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-emerald-300 border-emerald-400/30 bg-emerald-950/40">
+                                    Salud & Formación Odontológica
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Centro de Entrenamiento e Innovación Médica
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Plataforma digital especializada con venta de módulos formativos, recursos interactivos y pasarela de formalización comercial.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>E-Learning & Salud</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 4. Áncora Consulting -->
+            <a href="https://ancoraconsulting.com.co/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-indigo-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-indigo-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-indigo-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    AC
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        Áncora Consulting
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>ancoraconsulting.com.co</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-indigo-300 border-indigo-400/30 bg-indigo-950/40">
+                                    Consultoría B2B & Finanzas
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Firma de Asesoría y Dirección Estratégica
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Sitio institucional de alta gama diseñado para proyectar autoridad corporativa, estructuración empresarial y atracción de clientes de alto ticket.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Consultoría Corporativa</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 5. NattSmartt -->
+            <a href="https://inattsmartt.com/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-purple-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-purple-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-purple-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    NS
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        NattSmartt
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>inattsmartt.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-purple-300 border-purple-400/30 bg-purple-950/40">
+                                    E-Commerce de Lujo & Apple
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                El Poder de Apple. La Experiencia de Lujo.
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Showcase de comercio digital premium para dispositivos Apple con navegación inmersiva, catálogo curado y estética ultra refinada.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Retail Tecnológico</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 6. Cano Films -->
+            <a href="https://canofilms.net/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-orange-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-orange-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-orange-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    CF
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        Cano Films
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>canofilms.net</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-orange-300 border-orange-400/30 bg-orange-950/40">
+                                    Industria Creativa & Cine
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Producción Audiovisual & Dirección Cinematográfica
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Portafolio visual de alto impacto cinematográfico para comerciales, reels de dirección de foto y producciones de video artístico.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Cine & Audiovisual</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- SET 2 (DUPLICATED FOR CONTINUOUS INFINITE SMOOTH MARQUEE LOOP) -->
+            <!-- 1. JG Painting Contractors -->
+            <a href="https://jgpainting.business/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl" aria-hidden="true">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-amber-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-fiscal-gold bg-black/60 px-2.5 py-0.5 rounded-full border border-fiscal-gold/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-fiscal-gold animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    JG
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        JG Painting Contractors
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>jgpainting.business</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-amber-300 border-amber-400/30 bg-amber-950/40">
+                                    Construcción & Acabados (USA)
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Professional Painting Services in North Carolina
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Plataforma bilingüe enfocada en el mercado estadounidense, estructurada para generar presupuestos inmediatos y validar reputación local.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Mercado Internacional</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 2. Mariquita Digital -->
+            <a href="https://mariquita.digital/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl" aria-hidden="true">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-teal-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-teal-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-teal-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    MD
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        Mariquita Digital
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>mariquita.digital</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-teal-300 border-teal-400/30 bg-teal-950/40">
+                                    Directorio Local & Turismo
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Portal & Directorio Comercial de San Sebastián
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Directorio y ecosistema web interactivo que impulsa la visibilidad de empresas locales, hoteles, gastronomía y turismo regional.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Directorio Comercial</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 3. CEIMOD -->
+            <a href="https://www.ceimod.com" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl" aria-hidden="true">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-emerald-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-emerald-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    CM
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        CEIMOD
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>ceimod.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-emerald-300 border-emerald-400/30 bg-emerald-950/40">
+                                    Salud & Formación Odontológica
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Centro de Entrenamiento e Innovación Médica
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Plataforma digital especializada con venta de módulos formativos, recursos interactivos y pasarela de formalización comercial.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>E-Learning & Salud</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 4. Áncora Consulting -->
+            <a href="https://ancoraconsulting.com.co/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl" aria-hidden="true">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-indigo-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-indigo-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-indigo-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    AC
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        Áncora Consulting
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>ancoraconsulting.com.co</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-indigo-300 border-indigo-400/30 bg-indigo-950/40">
+                                    Consultoría B2B & Finanzas
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Firma de Asesoría y Dirección Estratégica
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Sitio institucional de alta gama diseñado para proyectar autoridad corporativa, estructuración empresarial y atracción de clientes de alto ticket.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Consultoría Corporativa</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 5. NattSmartt -->
+            <a href="https://inattsmartt.com/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl" aria-hidden="true">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-purple-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-purple-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-purple-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    NS
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        NattSmartt
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>inattsmartt.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-purple-300 border-purple-400/30 bg-purple-950/40">
+                                    E-Commerce de Lujo & Apple
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                El Poder de Apple. La Experiencia de Lujo.
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Showcase de comercio digital premium para dispositivos Apple con navegación inmersiva, catálogo curado y estética ultra refinada.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Retail Tecnológico</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 6. Cano Films -->
+            <a href="https://canofilms.net/" target="_blank" rel="noopener noreferrer" class="group/card block w-[320px] sm:w-[360px] md:w-[390px] shrink-0 text-left transition-all duration-300 hover:-translate-y-2 focus:outline-none rounded-2xl" aria-hidden="true">
+                <div class="rounded-2xl overflow-hidden border border-white/15 hover:border-fiscal-gold/60 transition-all duration-300 shadow-xl flex flex-col h-full justify-between bg-[#240d3a]/90 backdrop-blur-md hover:shadow-[0_15px_35px_rgba(212,175,55,0.2)]">
+                    <div class="p-6 bg-gradient-to-br from-orange-500/20 via-[#240d3a] to-[#18062b] border-b border-white/10 relative flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-orange-300 bg-black/60 px-2.5 py-0.5 rounded-full border border-orange-400/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+                                ONLINE
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-[#18062b] border border-white/20 flex items-center justify-center font-bold text-base text-white group-hover/card:border-fiscal-gold group-hover/card:text-fiscal-gold transition-colors shadow-inner">
+                                    CF
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-white group-hover/card:text-fiscal-gold transition-colors">
+                                        Cano Films
+                                    </h3>
+                                    <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span>canofilms.net</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
+                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="mb-3">
+                                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border text-orange-300 border-orange-400/30 bg-orange-950/40">
+                                    Industria Creativa & Cine
+                                </span>
+                            </div>
+                            <h4 class="font-semibold text-sm sm:text-base text-white mb-2 leading-snug line-clamp-1">
+                                Producción Audiovisual & Dirección Cinematográfica
+                            </h4>
+                            <p class="text-white/70 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                                Portafolio visual de alto impacto cinematográfico para comerciales, reels de dirección de foto y producciones de video artístico.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                            <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span>Cine & Audiovisual</span>
+                            </span>
+                            <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
+                                <span>Visitar sitio</span>
+                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Offer Section -->
 <section class="py-24 bg-surface relative overflow-hidden" id="servicios">
 <!-- Asymmetric Background Accent -->
@@ -639,6 +1502,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.disabled = false;
                 btn.innerHTML = originalHtml;
             });
+        });
+    }
+
+    // Portfolio Carousel Controls
+    const carouselTrack = document.getElementById('portfolioTrack');
+    const carouselContainer = document.getElementById('portfolioCarouselContainer');
+    const pauseBtn = document.getElementById('carouselPauseBtn');
+    const pauseIcon = document.getElementById('pauseIcon');
+    const pauseText = document.getElementById('pauseText');
+    const prevBtn = document.getElementById('carouselPrevBtn');
+    const nextBtn = document.getElementById('carouselNextBtn');
+
+    let isCarouselPaused = false;
+
+    if (pauseBtn && carouselTrack) {
+        pauseBtn.addEventListener('click', () => {
+            isCarouselPaused = !isCarouselPaused;
+            if (isCarouselPaused) {
+                carouselTrack.classList.add('is-paused');
+                if (pauseIcon) pauseIcon.textContent = 'play_arrow';
+                if (pauseText) pauseText.textContent = 'Reanudar';
+            } else {
+                carouselTrack.classList.remove('is-paused');
+                if (pauseIcon) pauseIcon.textContent = 'pause';
+                if (pauseText) pauseText.textContent = 'Pausar';
+            }
+        });
+    }
+
+    if (prevBtn && carouselContainer) {
+        prevBtn.addEventListener('click', () => {
+            carouselContainer.scrollBy({ left: -380, behavior: 'smooth' });
+        });
+    }
+
+    if (nextBtn && carouselContainer) {
+        nextBtn.addEventListener('click', () => {
+            carouselContainer.scrollBy({ left: 380, behavior: 'smooth' });
         });
     }
 });
