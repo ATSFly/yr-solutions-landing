@@ -128,9 +128,15 @@
 <!-- Top Navigation -->
 <header class="bg-surface dark:bg-primary-container shadow-sm sticky top-0 z-50 transition-all duration-300 w-full">
 <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
-<a class="flex items-center gap-2" href="#">
-<img alt="YR Solutions Logo" class="h-12 w-auto object-contain" src="assets/your_real_solutions512x512.png" loading="lazy"/>
+<div class="flex items-center gap-2 sm:gap-3">
+<a class="flex items-center" href="#inicio">
+<img alt="YR Solutions Logo" class="h-10 sm:h-12 w-auto object-contain shrink-0" src="assets/your_real_solutions512x512.png" loading="lazy"/>
 </a>
+<span class="h-6 w-px bg-outline-variant/40"></span>
+<a href="https://www.bbb.org/us/nc/asheboro/profile/business-services/yr-solutions-llc-0503-1000048839" target="_blank" rel="noopener noreferrer" class="flex items-center hover:opacity-90 transition-opacity" title="YR Solutions - Accredited Business por BBB">
+<img alt="YR Solutions - BBB Accredited Business" class="h-6 sm:h-8 md:h-9 w-auto object-contain rounded shrink-0 shadow-xs" src="assets/bbb_accredited_business.jpg"/>
+</a>
+</div>
 <div class="hidden md:flex items-center gap-8">
 <a class="font-label-md text-primary dark:text-fiscal-gold font-bold border-b-2 border-primary dark:border-fiscal-gold pb-1 hover:text-mauve-accent transition-colors duration-200" href="#inicio">Inicio</a>
 <a class="font-label-md text-text-secondary dark:text-on-primary-container hover:text-mauve-accent transition-colors duration-200" href="#servicios">Servicios</a>
@@ -174,6 +180,15 @@
             <a class="font-label-md text-text-secondary dark:text-on-primary-container hover:text-mauve-accent py-2 border-b border-outline-variant/10" href="diseno-web.html">Diseño Web</a>
             <a class="font-label-md text-text-secondary dark:text-on-primary-container hover:text-mauve-accent py-2 border-b border-outline-variant/10" href="index.html#contacto">Contacto</a>
         </nav>
+        <div class="py-3 px-3 bg-surface-container/60 rounded-xl flex items-center justify-between border border-outline-variant/20">
+            <div class="flex flex-col">
+                <span class="text-xs font-bold text-primary dark:text-on-primary">Acreditación Oficial</span>
+                <span class="text-[11px] text-text-secondary dark:text-on-primary-container">Better Business Bureau</span>
+            </div>
+            <a href="https://www.bbb.org/us/nc/asheboro/profile/business-services/yr-solutions-llc-0503-1000048839" target="_blank" rel="noopener noreferrer">
+                <img alt="BBB Accredited Business" class="h-7 w-auto object-contain rounded" src="assets/bbb_accredited_business.jpg" />
+            </a>
+        </div>
         <div class="mt-auto">
             <a href="https://wa.me/19195196704" target="_blank" class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-md py-3 rounded-lg shadow-sm transition-all duration-300 block text-center">
                 Agenda tu cita
@@ -190,10 +205,17 @@
 <div class="max-w-container-max mx-auto relative z-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 <!-- Left Text Column -->
 <div class="w-full lg:w-7/12 flex flex-col items-start text-left">
-<div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-gradient-to-r from-primary/10 via-mauve-accent/15 to-fiscal-gold/20 text-primary font-label-md mb-6 border border-primary/20 shadow-sm backdrop-blur-sm">
+<div class="flex flex-wrap items-center gap-3 mb-6">
+<div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-gradient-to-r from-primary/10 via-mauve-accent/15 to-fiscal-gold/20 text-primary font-label-md border border-primary/20 shadow-sm backdrop-blur-sm">
 <span class="text-base animate-bounce">🎉</span>
 <span class="font-bold">¡Celebramos nuestro 3.ᵉʳ Aniversario!</span>
 <span class="text-xs bg-fiscal-gold text-primary font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Gran Rifa</span>
+</div>
+<a href="https://www.bbb.org/us/nc/asheboro/profile/business-services/yr-solutions-llc-0503-1000048839" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-[#005a7a]/10 hover:bg-[#005a7a]/20 text-[#005a7a] border border-[#005a7a]/30 font-semibold text-xs sm:text-sm transition-all duration-300 shadow-sm group backdrop-blur-sm" title="Ver perfil oficial de acreditación en BBB">
+<img src="assets/bbb_accredited_business.jpg" alt="BBB Accredited Business" class="h-4 sm:h-5 w-auto object-contain rounded-xs shrink-0" />
+<span>Contamos con Accredited Business</span>
+<span class="material-symbols-outlined text-xs sm:text-sm transition-transform duration-200 group-hover:translate-x-0.5" style="font-variation-settings: 'FILL' 0;">open_in_new</span>
+</a>
 </div>
 <h1 class="font-display-lg text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-primary mb-6 leading-tight font-bold">
                     SOLUCIONES REALES PARA TI Y TU NEGOCIO
