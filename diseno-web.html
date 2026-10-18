@@ -140,6 +140,33 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        /* Google Translate Resets */
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-banner-frame,
+        #goog-gt-tt,
+        .goog-te-balloon-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        body {
+            top: 0px !important;
+            position: static !important;
+        }
+        .goog-tooltip,
+        .goog-tooltip:hover {
+            display: none !important;
+        }
+        .goog-text-highlight {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        #google_translate_element {
+            display: none !important;
+        }
+        .skiptranslate > iframe {
+            display: none !important;
+        }
     </style>
 </head>
 <body class="bg-surface font-body-md text-body-md text-text-primary antialiased selection:bg-mauve-accent selection:text-white">
@@ -162,7 +189,43 @@
 <a class="font-label-md text-text-secondary dark:text-on-primary-container hover:text-mauve-accent transition-colors duration-200" href="index.html#nosotros">Sobre Nosotros</a>
 <a class="font-label-md text-text-secondary dark:text-on-primary-container hover:text-mauve-accent transition-colors duration-200" href="index.html#contacto">Contacto</a>
 </div>
-<div class="hidden md:flex items-center gap-4">
+<div class="hidden md:flex items-center gap-3">
+<!-- Language Selector Desktop -->
+<div class="inline-flex items-center p-1 bg-surface-container/90 border border-outline-variant/40 rounded-full shadow-2xs gap-0.5 text-xs font-bold" role="group" aria-label="Cambiar idioma / Change language">
+    <button type="button" onclick="setSiteLanguage('es')" class="lang-btn-es inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all duration-200 bg-primary text-white shadow-2xs" title="Español">
+        <svg class="w-4 h-3 rounded-[2px] shadow-2xs shrink-0" viewBox="0 0 640 480" aria-hidden="true">
+            <path fill="#aa151b" d="M0 0h640v480H0z"/>
+            <path fill="#f1bf00" d="M0 120h640v240H0z"/>
+            <g transform="translate(160 240) scale(1.6)">
+                <path fill="#aa151b" d="M-20-30h40v35c0 15-20 25-20 25s-20-10-20-25z"/>
+                <path fill="#f1bf00" d="M-14-24h28v28c0 10-14 18-14 18s-14-8-14-18z"/>
+                <circle cx="0" cy="-6" r="6" fill="#aa151b"/>
+                <path fill="#f1bf00" d="M-18-36l6-10 12 6 12-6 6 10z"/>
+            </g>
+        </svg>
+        <span class="tracking-wider text-xs font-bold">ES</span>
+    </button>
+    <button type="button" onclick="setSiteLanguage('en')" class="lang-btn-en inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full transition-all duration-200 text-text-secondary hover:text-primary" title="English">
+        <svg class="w-4 h-3 rounded-[2px] shadow-2xs shrink-0" viewBox="0 0 640 480" aria-hidden="true">
+            <g fill="#b22234">
+                <path d="M0 0h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0z"/>
+            </g>
+            <path fill="#fff" d="M0 37h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0z"/>
+            <path fill="#3c3b6e" d="M0 0h260v259H0z"/>
+            <g fill="#fff">
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(10,5)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(95,5)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(180,5)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(50,85)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(140,85)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(10,165)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(95,165)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(180,165)"/>
+            </g>
+        </svg>
+        <span class="tracking-wider text-xs font-bold">EN</span>
+    </button>
+</div>
 <a class="border border-primary text-primary hover:bg-primary/5 dark:border-on-primary-container dark:text-on-primary-container dark:hover:bg-on-primary-container/10 font-label-md px-5 py-2.5 rounded-lg transition-all duration-300 text-center" href="conoce-yalu.html">
     Conoce a Yalu Rivas
 </a>
@@ -170,11 +233,47 @@
                     Agenda tu cita
                 </a>
 </div>
-<div class="flex items-center gap-2 md:hidden">
-<a href="https://wa.me/19195196704" target="_blank" class="bg-primary hover:bg-primary-container text-on-primary text-xs font-bold px-3 py-2.5 rounded-lg shadow-sm transition-all duration-300 text-center">
+<div class="flex items-center gap-1.5 sm:gap-2 md:hidden">
+<!-- Language Selector Mobile Header -->
+<div class="inline-flex items-center p-0.5 bg-surface-container/90 border border-outline-variant/40 rounded-full shadow-2xs gap-0.5 text-xs font-bold" role="group" aria-label="Cambiar idioma">
+    <button type="button" onclick="setSiteLanguage('es')" class="lang-btn-es inline-flex items-center gap-1 px-2 py-1 rounded-full transition-all duration-200 bg-primary text-white shadow-2xs" title="Español">
+        <svg class="w-3.5 h-2.5 rounded-[1px] shadow-2xs shrink-0" viewBox="0 0 640 480" aria-hidden="true">
+            <path fill="#aa151b" d="M0 0h640v480H0z"/>
+            <path fill="#f1bf00" d="M0 120h640v240H0z"/>
+            <g transform="translate(160 240) scale(1.6)">
+                <path fill="#aa151b" d="M-20-30h40v35c0 15-20 25-20 25s-20-10-20-25z"/>
+                <path fill="#f1bf00" d="M-14-24h28v28c0 10-14 18-14 18s-14-8-14-18z"/>
+                <circle cx="0" cy="-6" r="6" fill="#aa151b"/>
+                <path fill="#f1bf00" d="M-18-36l6-10 12 6 12-6 6 10z"/>
+            </g>
+        </svg>
+        <span class="tracking-wider text-[11px] font-bold">ES</span>
+    </button>
+    <button type="button" onclick="setSiteLanguage('en')" class="lang-btn-en inline-flex items-center gap-1 px-2 py-1 rounded-full transition-all duration-200 text-text-secondary hover:text-primary" title="English">
+        <svg class="w-3.5 h-2.5 rounded-[1px] shadow-2xs shrink-0" viewBox="0 0 640 480" aria-hidden="true">
+            <g fill="#b22234">
+                <path d="M0 0h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0z"/>
+            </g>
+            <path fill="#fff" d="M0 37h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0z"/>
+            <path fill="#3c3b6e" d="M0 0h260v259H0z"/>
+            <g fill="#fff">
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(10,5)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(95,5)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(180,5)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(50,85)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(140,85)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(10,165)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(95,165)"/>
+                <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(180,165)"/>
+            </g>
+        </svg>
+        <span class="tracking-wider text-[11px] font-bold">EN</span>
+    </button>
+</div>
+<a href="https://wa.me/19195196704" target="_blank" class="bg-primary hover:bg-primary-container text-on-primary text-xs font-bold px-2.5 sm:px-3 py-2 rounded-lg shadow-sm transition-all duration-300 text-center">
     Agenda tu cita
 </a>
-<button class="text-primary p-2" id="menuBtn">
+<button class="text-primary p-1.5" id="menuBtn" aria-label="Abrir menú">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
 </button>
 </div>
@@ -183,12 +282,54 @@
 
 <!-- Mobile Menu Drawer -->
 <div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-primary/20 backdrop-blur-sm md:hidden">
-    <div class="fixed top-0 right-0 bottom-0 w-3/4 max-w-sm bg-white dark:bg-primary-container p-6 shadow-xl flex flex-col gap-6">
+    <div class="fixed top-0 right-0 bottom-0 w-3/4 max-w-sm bg-white dark:bg-primary-container p-6 shadow-xl flex flex-col gap-5">
         <div class="flex justify-between items-center">
             <span class="font-headline-md text-primary dark:text-on-primary">Menú</span>
-            <button id="closeMenu" class="text-primary p-2">
+            <button id="closeMenu" class="text-primary p-2" aria-label="Cerrar menú">
                 <span class="material-symbols-outlined">close</span>
             </button>
+        </div>
+        <!-- Language Selector inside Mobile Drawer -->
+        <div class="py-2.5 px-3 bg-surface-container/60 rounded-xl flex items-center justify-between border border-outline-variant/20">
+            <div class="flex flex-col">
+                <span class="text-xs font-bold text-primary dark:text-on-primary">Idioma / Language</span>
+                <span class="text-[11px] text-text-secondary dark:text-on-primary-container">Selecciona tu idioma</span>
+            </div>
+            <div class="inline-flex items-center p-0.5 bg-white border border-outline-variant/40 rounded-full shadow-2xs gap-0.5 text-xs font-bold" role="group" aria-label="Cambiar idioma">
+                <button type="button" onclick="setSiteLanguage('es')" class="lang-btn-es inline-flex items-center gap-1 px-2.5 py-1 rounded-full transition-all duration-200 bg-primary text-white shadow-2xs">
+                    <svg class="w-3.5 h-2.5 rounded-[1px] shadow-2xs shrink-0" viewBox="0 0 640 480" aria-hidden="true">
+                        <path fill="#aa151b" d="M0 0h640v480H0z"/>
+                        <path fill="#f1bf00" d="M0 120h640v240H0z"/>
+                        <g transform="translate(160 240) scale(1.6)">
+                            <path fill="#aa151b" d="M-20-30h40v35c0 15-20 25-20 25s-20-10-20-25z"/>
+                            <path fill="#f1bf00" d="M-14-24h28v28c0 10-14 18-14 18s-14-8-14-18z"/>
+                            <circle cx="0" cy="-6" r="6" fill="#aa151b"/>
+                            <path fill="#f1bf00" d="M-18-36l6-10 12 6 12-6 6 10z"/>
+                        </g>
+                    </svg>
+                    <span class="tracking-wider text-[11px] font-bold">ES</span>
+                </button>
+                <button type="button" onclick="setSiteLanguage('en')" class="lang-btn-en inline-flex items-center gap-1 px-2.5 py-1 rounded-full transition-all duration-200 text-text-secondary hover:text-primary">
+                    <svg class="w-3.5 h-2.5 rounded-[1px] shadow-2xs shrink-0" viewBox="0 0 640 480" aria-hidden="true">
+                        <g fill="#b22234">
+                            <path d="M0 0h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0z"/>
+                        </g>
+                        <path fill="#fff" d="M0 37h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0zm0 74h640v37H0z"/>
+                        <path fill="#3c3b6e" d="M0 0h260v259H0z"/>
+                        <g fill="#fff">
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(10,5)"/>
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(95,5)"/>
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(180,5)"/>
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(50,85)"/>
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(140,85)"/>
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(10,165)"/>
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(95,165)"/>
+                            <polygon points="40,28 43,37 53,37 45,43 48,52 40,46 32,52 35,43 27,37 37,37" transform="scale(0.8) translate(180,165)"/>
+                        </g>
+                    </svg>
+                    <span class="tracking-wider text-[11px] font-bold">EN</span>
+                </button>
+            </div>
         </div>
         <nav class="flex flex-col gap-4">
             <a class="font-label-md text-text-secondary dark:text-on-primary-container hover:text-mauve-accent py-2 border-b border-outline-variant/10" href="index.html#inicio">Inicio</a>
@@ -1543,5 +1684,96 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+</script>
+
+<!-- Google Translate Element & Language Controller -->
+<div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+// Language Switcher Logic
+function getSiteCookie(name) {
+    const match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]*)'));
+    return match ? decodeURIComponent(match[2]) : null;
+}
+
+function setSiteCookie(name, value, days) {
+    let expires = '';
+    if (days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + d.toUTCString();
+    }
+    const hostParts = window.location.hostname.split('.');
+    const domain = (hostParts.length > 1 && !/^\d+\.\d+\.\d+\.\d+$/.test(window.location.hostname))
+        ? '; domain=.' + hostParts.slice(-2).join('.')
+        : '';
+    document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/' + domain;
+    document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/';
+}
+
+function updateLanguageUI(lang) {
+    const isEn = lang === 'en';
+    document.querySelectorAll('.lang-btn-es').forEach(btn => {
+        if (isEn) {
+            btn.classList.remove('bg-primary', 'text-white', 'shadow-2xs');
+            btn.classList.add('text-text-secondary', 'hover:text-primary');
+        } else {
+            btn.classList.add('bg-primary', 'text-white', 'shadow-2xs');
+            btn.classList.remove('text-text-secondary', 'hover:text-primary');
+        }
+    });
+    document.querySelectorAll('.lang-btn-en').forEach(btn => {
+        if (isEn) {
+            btn.classList.add('bg-primary', 'text-white', 'shadow-2xs');
+            btn.classList.remove('text-text-secondary', 'hover:text-primary');
+        } else {
+            btn.classList.remove('bg-primary', 'text-white', 'shadow-2xs');
+            btn.classList.add('text-text-secondary', 'hover:text-primary');
+        }
+    });
+}
+
+function setSiteLanguage(lang) {
+    localStorage.setItem('site_lang', lang);
+    updateLanguageUI(lang);
+
+    const googTransVal = lang === 'en' ? '/es/en' : '/es/es';
+    setSiteCookie('googtrans', googTransVal, 30);
+
+    const combo = document.querySelector('.goog-te-combo');
+    if (combo) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event('change'));
+    } else {
+        window.location.reload();
+    }
+}
+
+function initLanguagePreference() {
+    const cookie = getSiteCookie('googtrans');
+    let lang = 'es';
+    if (cookie && cookie.includes('/en')) {
+        lang = 'en';
+    } else if (localStorage.getItem('site_lang') === 'en') {
+        lang = 'en';
+    }
+    updateLanguageUI(lang);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguagePreference);
+} else {
+    initLanguagePreference();
+}
 </script>
 </body></html>
