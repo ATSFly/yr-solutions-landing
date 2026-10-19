@@ -166,7 +166,14 @@
             box-shadow: none !important;
         }
         #google_translate_element {
-            display: none !important;
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
         .skiptranslate > iframe {
             display: none !important;
@@ -278,7 +285,7 @@
     Agenda tu cita
 </a>
 <button class="text-primary p-1.5" id="menuBtn" aria-label="Abrir menú">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">menu</span>
 </button>
 </div>
 </nav>
@@ -290,7 +297,7 @@
         <div class="flex justify-between items-center">
             <span class="font-headline-md text-primary dark:text-on-primary">Menú</span>
             <button id="closeMenu" class="text-primary p-2" aria-label="Cerrar menú">
-                <span class="material-symbols-outlined">close</span>
+                <span class="material-symbols-outlined notranslate" translate="no">close</span>
             </button>
         </div>
         <!-- Language Selector inside Mobile Drawer -->
@@ -380,11 +387,11 @@
                 </p>
 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10">
 <a href="https://wa.me/19195196704" target="_blank" class="bg-fiscal-gold hover:bg-tertiary-container text-primary font-label-md px-8 py-4 rounded-lg shadow-md transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2 text-center font-bold">
-<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="material-symbols-outlined text-xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">calendar_month</span>
 <span>Agenda tu cita hoy</span>
 </a>
 <a href="#servicios" class="bg-white/80 backdrop-blur-sm border-2 border-primary text-primary hover:bg-primary hover:text-white font-label-md px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center justify-center gap-2 text-center font-semibold">
-<span class="material-symbols-outlined text-xl">list_alt</span>
+<span class="material-symbols-outlined text-xl notranslate" translate="no">list_alt</span>
 <span>Nuestros Servicios</span>
 </a>
 </div>
@@ -392,7 +399,7 @@
 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full pt-4 border-t border-outline-variant/30">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="material-symbols-outlined text-lg notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">verified</span>
 </div>
 <div>
 <h4 class="font-label-md text-xs sm:text-sm text-primary font-bold">Agente CAA</h4>
@@ -401,7 +408,7 @@
 </div>
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-fiscal-gold/20 flex items-center justify-center text-tertiary-container shrink-0">
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">translate</span>
+<span class="material-symbols-outlined text-lg notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">translate</span>
 </div>
 <div>
 <h4 class="font-label-md text-xs sm:text-sm text-primary font-bold">100% Bilingüe</h4>
@@ -410,7 +417,7 @@
 </div>
 <div class="col-span-2 sm:col-span-1 flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-mauve-accent/20 flex items-center justify-center text-secondary shrink-0">
-<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="material-symbols-outlined text-lg notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">workspace_premium</span>
 </div>
 <div>
 <h4 class="font-label-md text-xs sm:text-sm text-primary font-bold">+10 Años</h4>
@@ -425,7 +432,7 @@
 <div class="glass-panel rounded-2xl p-6 sm:p-8 w-full max-w-md ambient-shadow-lg border border-white/60 space-y-6">
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="material-symbols-outlined text-2xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">verified</span>
 </div>
 <div>
 <h3 class="font-headline-md text-base text-primary font-bold">Agente CAA del IRS</h3>
@@ -434,7 +441,7 @@
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 rounded-full bg-fiscal-gold/20 flex items-center justify-center text-tertiary-container shrink-0">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">translate</span>
+<span class="material-symbols-outlined text-2xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">translate</span>
 </div>
 <div>
 <h3 class="font-headline-md text-base text-primary font-bold">Atención 100% Bilingüe</h3>
@@ -443,7 +450,7 @@
 </div>
 <div class="flex items-center gap-4">
 <div class="w-12 h-12 rounded-full bg-mauve-accent/20 flex items-center justify-center text-secondary shrink-0">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="material-symbols-outlined text-2xl notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">security</span>
 </div>
 <div>
 <h3 class="font-headline-md text-base text-primary font-bold">Trámites Seguros y Rápidos</h3>
@@ -454,7 +461,7 @@
 <span class="font-label-md text-xs text-text-secondary">¿Tienes dudas con tus trámites?</span>
 <a href="https://wa.me/19195196704" target="_blank" class="text-primary font-bold text-xs hover:text-mauve-accent flex items-center gap-1">
 <span>Consúltanos</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
+<span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -482,21 +489,21 @@
                 </p>
 <div class="space-y-4 mb-10">
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-fiscal-gold mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-fiscal-gold mt-1 notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
 <div>
 <h4 class="font-label-md text-body-md text-primary">Atención Bilingüe</h4>
 <p class="font-body-md text-caption text-text-secondary">Comunicación clara en tu idioma.</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-fiscal-gold mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-fiscal-gold mt-1 notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
 <div>
 <h4 class="font-label-md text-body-md text-primary">Procesos Transparentes</h4>
 <p class="font-body-md text-caption text-text-secondary">Sin sorpresas ni cargos ocultos.</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-fiscal-gold mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="material-symbols-outlined text-fiscal-gold mt-1 notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
 <div>
 <h4 class="font-label-md text-body-md text-primary">Acompañamiento Paso a Paso</h4>
 <p class="font-body-md text-caption text-text-secondary">Te guiamos en cada etapa del trámite.</p>
@@ -506,7 +513,7 @@
 <div class="mt-8">
 <a class="inline-flex items-center gap-2 bg-primary hover:bg-primary-container text-on-primary font-label-md px-6 py-3.5 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg" href="conoce-yalu.html">
     <span>Ver Trayectoria Profesional</span>
-    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+    <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -523,7 +530,7 @@
 <!-- Service Card 1 -->
 <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-variant hover:-translate-y-2 transition-transform duration-300 group">
 <div class="w-14 h-14 rounded-lg bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">directions_car</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">directions_car</span>
 </div>
 <h3 class="font-headline-md text-body-lg text-primary mb-3">Trámites Vehiculares</h3>
 <p class="font-body-md text-caption text-text-secondary">Gestión rápida de placas, títulos, registro y seguros de vehículos ante el DMV en Carolina del Norte, sin complicaciones ni demoras.</p>
@@ -532,7 +539,7 @@
 <!-- Service Card 2 -->
 <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-variant hover:-translate-y-2 transition-transform duration-300 group">
 <div class="w-14 h-14 rounded-lg bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">history_edu</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">history_edu</span>
 </div>
 <h3 class="font-headline-md text-body-lg text-primary mb-3">Notarizaciones Profesionales</h3>
 <p class="font-body-md text-caption text-text-secondary">Servicio oficial y confiable de notario público para la firma y autenticación autorizada de todo tipo de documentos legales y comerciales.</p>
@@ -541,7 +548,7 @@
 <!-- Service Card 3 -->
 <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-variant hover:-translate-y-2 transition-transform duration-300 group">
 <div class="w-14 h-14 rounded-lg bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">domain</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">domain</span>
 </div>
 <h3 class="font-headline-md text-body-lg text-primary mb-3">ITIN y Apertura de Negocios</h3>
 <p class="font-body-md text-caption text-text-secondary">Tramitación oficial del número ITIN y asesoría especializada paso a paso para el registro, estructura y apertura de tu nueva empresa.</p>
@@ -550,7 +557,7 @@
 <!-- Service Card 4 -->
 <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-variant hover:-translate-y-2 transition-transform duration-300 group">
 <div class="w-14 h-14 rounded-lg bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">receipt_long</span>
 </div>
 <h3 class="font-headline-md text-body-lg text-primary mb-3">Impuestos Personales y Comerciales</h3>
 <p class="font-body-md text-caption text-text-secondary">Preparación y declaración experta de taxes con el IRS para individuos y negocios, asegurando el cumplimiento legal y el máximo reembolso.</p>
@@ -559,7 +566,7 @@
 <!-- Service Card 5 -->
 <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-variant hover:-translate-y-2 transition-transform duration-300 group">
 <div class="w-14 h-14 rounded-lg bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shield</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">shield</span>
 </div>
 <h3 class="font-headline-md text-body-lg text-primary mb-3">Seguros Personales y Comerciales</h3>
 <p class="font-body-md text-caption text-text-secondary">Asesoría y contratación de pólizas de seguros de auto, casa, salud, responsabilidad civil y pólizas comerciales adaptadas a tus necesidades.</p>
@@ -568,7 +575,7 @@
 <!-- Service Card 6 -->
 <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-variant hover:-translate-y-2 transition-transform duration-300 group">
 <div class="w-14 h-14 rounded-lg bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">translate</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">translate</span>
 </div>
 <h3 class="font-headline-md text-body-lg text-primary mb-3">Traducciones y Redacción</h3>
 <p class="font-body-md text-caption text-text-secondary">Traducción certificada de documentos del inglés al español y viceversa, junto con la redacción profesional de cartas y contratos oficiales.</p>
@@ -577,7 +584,7 @@
 <!-- Service Card 7 -->
 <a href="diseno-web.html" class="block bg-surface rounded-xl p-8 ambient-shadow border border-surface-variant hover:-translate-y-2 transition-transform duration-300 group">
 <div class="w-14 h-14 rounded-lg bg-primary/5 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">palette</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">palette</span>
 </div>
 <h3 class="font-headline-md text-body-lg text-primary mb-3">Diseño Web, Gráfico y Branding</h3>
 <p class="font-body-md text-caption text-text-secondary">Diseño de logotipos, identidad corporativa, material publicitario y desarrollo de sitios web modernos e interactivos para tu negocio.</p>
@@ -603,7 +610,7 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
                 <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-fiscal-gold font-bold mb-3">
-                    <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    <span class="material-symbols-outlined text-base notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">auto_awesome</span>
                     <span>Clientes & Proyectos Desplegados</span>
                 </div>
                 <h2 class="font-display-lg text-3xl sm:text-4xl md:text-5xl text-white font-bold tracking-tight">
@@ -624,7 +631,7 @@
                     title="Pausar o reanudar movimiento"
                     aria-label="Pausar o reanudar carrusel"
                 >
-                    <span id="pauseIcon" class="material-symbols-outlined text-base">pause</span>
+                    <span id="pauseIcon" class="material-symbols-outlined text-base notranslate" translate="no">pause</span>
                     <span id="pauseText">Pausar</span>
                 </button>
 
@@ -636,7 +643,7 @@
                         class="w-8 h-8 rounded-lg flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
                         aria-label="Desplazar hacia la izquierda"
                     >
-                        <span class="material-symbols-outlined text-base">chevron_left</span>
+                        <span class="material-symbols-outlined text-base notranslate" translate="no">chevron_left</span>
                     </button>
                     <button
                         id="carouselNextBtn"
@@ -644,7 +651,7 @@
                         class="w-8 h-8 rounded-lg flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
                         aria-label="Desplazar hacia la derecha"
                     >
-                        <span class="material-symbols-outlined text-base">chevron_right</span>
+                        <span class="material-symbols-outlined text-base notranslate" translate="no">chevron_right</span>
                     </button>
                 </div>
             </div>
@@ -696,13 +703,13 @@
                                         JG Painting Contractors
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>jgpainting.business</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -722,12 +729,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Mercado Internacional</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -759,13 +766,13 @@
                                         Mariquita Digital
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>mariquita.digital</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -785,12 +792,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Directorio Comercial</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -822,13 +829,13 @@
                                         CEIMOD
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>ceimod.com</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -848,12 +855,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>E-Learning & Salud</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -885,13 +892,13 @@
                                         Áncora Consulting
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>ancoraconsulting.com.co</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -911,12 +918,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Consultoría Corporativa</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -948,13 +955,13 @@
                                         NattSmartt
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>inattsmartt.com</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -974,12 +981,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Retail Tecnológico</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1011,13 +1018,13 @@
                                         Cano Films
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>canofilms.net</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -1037,12 +1044,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Cine & Audiovisual</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1075,13 +1082,13 @@
                                         JG Painting Contractors
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>jgpainting.business</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -1101,12 +1108,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Mercado Internacional</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1138,13 +1145,13 @@
                                         Mariquita Digital
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>mariquita.digital</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -1164,12 +1171,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Directorio Comercial</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1201,13 +1208,13 @@
                                         CEIMOD
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>ceimod.com</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -1227,12 +1234,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>E-Learning & Salud</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1264,13 +1271,13 @@
                                         Áncora Consulting
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>ancoraconsulting.com.co</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -1290,12 +1297,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Consultoría Corporativa</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1327,13 +1334,13 @@
                                         NattSmartt
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>inattsmartt.com</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -1353,12 +1360,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Retail Tecnológico</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1390,13 +1397,13 @@
                                         Cano Films
                                     </h3>
                                     <div class="flex items-center gap-1 text-xs text-white/60 font-mono">
-                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold">language</span>
+                                        <span class="material-symbols-outlined text-[13px] text-fiscal-gold notranslate" translate="no">language</span>
                                         <span>canofilms.net</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/70 group-hover/card:text-fiscal-gold group-hover/card:border-fiscal-gold/50 group-hover/card:scale-110 transition-all">
-                                <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                                <span class="material-symbols-outlined text-sm notranslate" translate="no">arrow_outward</span>
                             </div>
                         </div>
                     </div>
@@ -1416,12 +1423,12 @@
                         </div>
                         <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                             <span class="text-[11px] font-medium text-white/60 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                <span class="material-symbols-outlined text-sm text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">check_circle</span>
                                 <span>Cine & Audiovisual</span>
                             </span>
                             <span class="font-bold text-fiscal-gold group-hover/card:underline inline-flex items-center gap-1">
                                 <span>Visitar sitio</span>
-                                <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                <span class="material-symbols-outlined text-xs notranslate" translate="no">open_in_new</span>
                             </span>
                         </div>
                     </div>
@@ -1437,21 +1444,21 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
 <div class="flex flex-col items-center">
 <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 border border-white/20">
-<span class="material-symbols-outlined text-4xl text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="material-symbols-outlined text-4xl text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">workspace_premium</span>
 </div>
 <h3 class="font-headline-md text-headline-md mb-2">Más de 10 años de experiencia</h3>
 <p class="font-body-md text-white/80">Conocimiento profundo de las regulaciones y procesos locales.</p>
 </div>
 <div class="flex flex-col items-center">
 <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 border border-white/20">
-<span class="material-symbols-outlined text-4xl text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="material-symbols-outlined text-4xl text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">handshake</span>
 </div>
 <h3 class="font-headline-md text-headline-md mb-2">Atención personalizada</h3>
 <p class="font-body-md text-white/80">Cada caso es único y recibe la dedicación que merece.</p>
 </div>
 <div class="flex flex-col items-center">
 <div class="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 border border-white/20">
-<span class="material-symbols-outlined text-4xl text-fiscal-gold" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<span class="material-symbols-outlined text-4xl text-fiscal-gold notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">support_agent</span>
 </div>
 <h3 class="font-headline-md text-headline-md mb-2">Soporte completo</h3>
 <p class="font-body-md text-white/80">Te acompañamos de principio a fin en todos tus trámites.</p>
@@ -1499,21 +1506,21 @@
 <img alt="YR Solutions Logo de pie de página" class="h-16 w-auto mb-8" src="assets/your_real_solutions512x512.png" loading="lazy"/>
 <div class="space-y-6 mb-8">
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-mauve-accent mt-1" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="material-symbols-outlined text-mauve-accent mt-1 notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">location_on</span>
 <div>
 <h4 class="font-label-md text-primary">Dirección</h4>
 <p class="font-body-md text-text-secondary">1759 Fairway RD<br/>Asheboro, NC 27205</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-mauve-accent mt-1" style="font-variation-settings: 'FILL' 1;">phone</span>
+<span class="material-symbols-outlined text-mauve-accent mt-1 notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">phone</span>
 <div>
 <h4 class="font-label-md text-primary">Teléfono</h4>
 <p class="font-body-md text-text-secondary">919-519-6704</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-mauve-accent mt-1" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="material-symbols-outlined text-mauve-accent mt-1 notranslate" style="font-variation-settings: 'FILL' 1;" translate="no">schedule</span>
 <div>
 <h4 class="font-label-md text-primary">Horario</h4>
 <p class="font-body-md text-text-secondary">Lunes - Viernes: 9:00 AM - 6:00 PM<br/>Sábados: Con cita previa</p>
@@ -1645,7 +1652,7 @@ if (nextBtn && carouselContainer) {
 </script>
 
 <!-- Google Translate Element & Language Controller -->
-<div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
+<div id="google_translate_element" aria-hidden="true"></div>
 <script type="text/javascript">
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -1658,25 +1665,38 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-// Language Switcher Logic
-function getSiteCookie(name) {
-    const match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]*)'));
-    return match ? decodeURIComponent(match[2]) : null;
+// Language Switcher Logic (Immediate, Unencoded Cookie)
+function getGoogTransCookie() {
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]*)/);
+    return match ? match[1] : null;
 }
 
-function setSiteCookie(name, value, days) {
-    let expires = '';
-    if (days) {
-        const d = new Date();
-        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = '; expires=' + d.toUTCString();
+function clearGoogTransCookie() {
+    const host = window.location.hostname;
+    const epoch = 'expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    document.cookie = 'googtrans=; ' + epoch;
+    if (host) {
+        document.cookie = 'googtrans=; ' + epoch + '; domain=' + host;
+        const hostParts = host.split('.');
+        if (hostParts.length > 2) {
+            const rootDomain = '.' + hostParts.slice(-2).join('.');
+            document.cookie = 'googtrans=; ' + epoch + '; domain=' + rootDomain;
+        }
     }
-    const hostParts = window.location.hostname.split('.');
-    const domain = (hostParts.length > 1 && !/^\d+\.\d+\.\d+\.\d+$/.test(window.location.hostname))
-        ? '; domain=.' + hostParts.slice(-2).join('.')
-        : '';
-    document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/' + domain;
-    document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/';
+}
+
+function setGoogTransCookie(val) {
+    const expires = 'expires=' + new Date(Date.now() + 30 * 864e5).toUTCString();
+    const host = window.location.hostname;
+    document.cookie = 'googtrans=' + val + '; ' + expires + '; path=/';
+    if (host) {
+        document.cookie = 'googtrans=' + val + '; ' + expires + '; path=/; domain=' + host;
+        const hostParts = host.split('.');
+        if (hostParts.length > 2) {
+            const rootDomain = '.' + hostParts.slice(-2).join('.');
+            document.cookie = 'googtrans=' + val + '; ' + expires + '; path=/; domain=' + rootDomain;
+        }
+    }
 }
 
 function updateLanguageUI(lang) {
@@ -1702,28 +1722,51 @@ function updateLanguageUI(lang) {
 }
 
 function setSiteLanguage(lang) {
-    localStorage.setItem('site_lang', lang);
     updateLanguageUI(lang);
+    localStorage.setItem('site_lang', lang);
 
-    const googTransVal = lang === 'en' ? '/es/en' : '/es/es';
-    setSiteCookie('googtrans', googTransVal, 30);
+    if (lang === 'es') {
+        clearGoogTransCookie();
+        const combo = document.querySelector('.goog-te-combo');
+        if (combo) {
+            combo.value = 'es';
+            if (typeof combo.onchange === 'function') combo.onchange();
+            combo.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        window.location.reload();
+        return;
+    }
+
+    // Switch to English
+    setGoogTransCookie('/es/en');
 
     const combo = document.querySelector('.goog-te-combo');
     if (combo) {
-        combo.value = lang;
-        combo.dispatchEvent(new Event('change'));
-    } else {
-        window.location.reload();
+        combo.value = 'en';
+        if (typeof combo.onchange === 'function') {
+            combo.onchange();
+        }
+        combo.dispatchEvent(new Event('change', { bubbles: true }));
+        combo.dispatchEvent(new Event('input', { bubbles: true }));
     }
+
+    setTimeout(function() {
+        const isTranslated = document.documentElement.classList.contains('translated-ltr') ||
+                             document.body.classList.contains('translated-ltr');
+        if (!isTranslated) {
+            window.location.reload();
+        }
+    }, 180);
 }
 
 function initLanguagePreference() {
-    const cookie = getSiteCookie('googtrans');
+    const cookie = getGoogTransCookie();
     let lang = 'es';
-    if (cookie && cookie.includes('/en')) {
+    if (cookie && cookie.indexOf('/en') !== -1) {
         lang = 'en';
     } else if (localStorage.getItem('site_lang') === 'en') {
         lang = 'en';
+        setGoogTransCookie('/es/en');
     }
     updateLanguageUI(lang);
 }

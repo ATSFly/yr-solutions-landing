@@ -239,7 +239,14 @@
             box-shadow: none !important;
         }
         #google_translate_element {
-            display: none !important;
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
         .skiptranslate > iframe {
             display: none !important;
@@ -351,7 +358,7 @@
     Agenda tu cita
 </a>
 <button class="text-primary p-1.5" id="menuBtn" aria-label="Abrir menú">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+<span class="material-symbols-outlined notranslate" style="font-variation-settings: 'FILL' 0;" translate="no">menu</span>
 </button>
 </div>
 </nav>
@@ -363,7 +370,7 @@
         <div class="flex justify-between items-center">
             <span class="font-headline-md text-primary dark:text-on-primary">Menú</span>
             <button id="closeMenu" class="text-primary p-2" aria-label="Cerrar menú">
-                <span class="material-symbols-outlined">close</span>
+                <span class="material-symbols-outlined notranslate" translate="no">close</span>
             </button>
         </div>
         <!-- Language Selector inside Mobile Drawer -->
@@ -563,7 +570,7 @@ if (menuBtn && mobileMenu && closeMenu) {
 </script>
 
 <!-- Google Translate Element & Language Controller -->
-<div id="google_translate_element" style="display:none;" aria-hidden="true"></div>
+<div id="google_translate_element" aria-hidden="true"></div>
 <script type="text/javascript">
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
@@ -576,25 +583,38 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-// Language Switcher Logic
-function getSiteCookie(name) {
-    const match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]*)'));
-    return match ? decodeURIComponent(match[2]) : null;
+// Language Switcher Logic (Immediate, Unencoded Cookie)
+function getGoogTransCookie() {
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]*)/);
+    return match ? match[1] : null;
 }
 
-function setSiteCookie(name, value, days) {
-    let expires = '';
-    if (days) {
-        const d = new Date();
-        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = '; expires=' + d.toUTCString();
+function clearGoogTransCookie() {
+    const host = window.location.hostname;
+    const epoch = 'expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    document.cookie = 'googtrans=; ' + epoch;
+    if (host) {
+        document.cookie = 'googtrans=; ' + epoch + '; domain=' + host;
+        const hostParts = host.split('.');
+        if (hostParts.length > 2) {
+            const rootDomain = '.' + hostParts.slice(-2).join('.');
+            document.cookie = 'googtrans=; ' + epoch + '; domain=' + rootDomain;
+        }
     }
-    const hostParts = window.location.hostname.split('.');
-    const domain = (hostParts.length > 1 && !/^\d+\.\d+\.\d+\.\d+$/.test(window.location.hostname))
-        ? '; domain=.' + hostParts.slice(-2).join('.')
-        : '';
-    document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/' + domain;
-    document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/';
+}
+
+function setGoogTransCookie(val) {
+    const expires = 'expires=' + new Date(Date.now() + 30 * 864e5).toUTCString();
+    const host = window.location.hostname;
+    document.cookie = 'googtrans=' + val + '; ' + expires + '; path=/';
+    if (host) {
+        document.cookie = 'googtrans=' + val + '; ' + expires + '; path=/; domain=' + host;
+        const hostParts = host.split('.');
+        if (hostParts.length > 2) {
+            const rootDomain = '.' + hostParts.slice(-2).join('.');
+            document.cookie = 'googtrans=' + val + '; ' + expires + '; path=/; domain=' + rootDomain;
+        }
+    }
 }
 
 function updateLanguageUI(lang) {
@@ -620,28 +640,51 @@ function updateLanguageUI(lang) {
 }
 
 function setSiteLanguage(lang) {
-    localStorage.setItem('site_lang', lang);
     updateLanguageUI(lang);
+    localStorage.setItem('site_lang', lang);
 
-    const googTransVal = lang === 'en' ? '/es/en' : '/es/es';
-    setSiteCookie('googtrans', googTransVal, 30);
+    if (lang === 'es') {
+        clearGoogTransCookie();
+        const combo = document.querySelector('.goog-te-combo');
+        if (combo) {
+            combo.value = 'es';
+            if (typeof combo.onchange === 'function') combo.onchange();
+            combo.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        window.location.reload();
+        return;
+    }
+
+    // Switch to English
+    setGoogTransCookie('/es/en');
 
     const combo = document.querySelector('.goog-te-combo');
     if (combo) {
-        combo.value = lang;
-        combo.dispatchEvent(new Event('change'));
-    } else {
-        window.location.reload();
+        combo.value = 'en';
+        if (typeof combo.onchange === 'function') {
+            combo.onchange();
+        }
+        combo.dispatchEvent(new Event('change', { bubbles: true }));
+        combo.dispatchEvent(new Event('input', { bubbles: true }));
     }
+
+    setTimeout(function() {
+        const isTranslated = document.documentElement.classList.contains('translated-ltr') ||
+                             document.body.classList.contains('translated-ltr');
+        if (!isTranslated) {
+            window.location.reload();
+        }
+    }, 180);
 }
 
 function initLanguagePreference() {
-    const cookie = getSiteCookie('googtrans');
+    const cookie = getGoogTransCookie();
     let lang = 'es';
-    if (cookie && cookie.includes('/en')) {
+    if (cookie && cookie.indexOf('/en') !== -1) {
         lang = 'en';
     } else if (localStorage.getItem('site_lang') === 'en') {
         lang = 'en';
+        setGoogTransCookie('/es/en');
     }
     updateLanguageUI(lang);
 }
