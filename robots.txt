@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yrsoluciones.info/sitemap.xml
